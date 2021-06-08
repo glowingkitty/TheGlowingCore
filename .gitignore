@@ -17,3 +17,6 @@ node_modules
 .project
 .idea
 .direnv
+*_autosave
+*.lys
+*.pwmx
