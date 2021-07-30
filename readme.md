@@ -1,138 +1,89 @@
-<p align="center">
-  <img src="/images/wled_logo_akemi.png">
-  <a href="https://github.com/atuline/WLED/releases"><img src="https://img.shields.io/github/release/Aircoookie/WLED.svg?style=flat-square"></a>
-  <a href="https://raw.githubusercontent.com/Aircoookie/WLED/master/LICENSE"><img src="https://img.shields.io/github/license/Aircoookie/wled?color=blue&style=flat-square"></a>
-  <a href="https://wled.discourse.group"><img src="https://img.shields.io/discourse/topics?colorB=blue&label=forum&server=https%3A%2F%2Fwled.discourse.group%2F&style=flat-square"></a>
-  <a href="https://discord.gg/KuqP7NE"><img src="https://img.shields.io/discord/473448917040758787.svg?colorB=blue&label=discord&style=flat-square"></a>
-  <a href="https://github.com/atuline/WLED/wiki"><img src="https://img.shields.io/badge/quick_start-wiki-blue.svg?style=flat-square"></a>
-  <a href="https://github.com/Aircoookie/WLED-App"><img src="https://img.shields.io/badge/app-wled-blue.svg?style=flat-square"></a>
-  <a href="https://gitpod.io/#https://github.com/atuline/WLED"><img src="https://img.shields.io/badge/Gitpod-ready--to--code-blue?style=flat-square&logo=gitpod"></a>
+# The Glowing Core
 
-  </p>
+![Your all in one solution to power your LED projects!](readme/header.jpg)
 
-# Sound Reactive WLED! 🎵
+## What is this project?
 
-Welcome to our Sound Reactive fork of WLED. In addition to the features of WLED below, we also support:
+The Glowing Core is a tiny package that allows you to easily build LED projects of all kind, with all the sensitive components protected in a case. Want to make an LED strip glow? Just connect the Glowing Core via the 3-pin connector to the LED strip, power the Glowing Core via MicroUSB or a lipo battery - and there you go, glowing LEDs!
 
-- Audio input from several sources including MAX4466, MAX9814, MAX9184, INMP401, INMP441 (for ESP32) and line-in.
-- Volume reactive visual effects for ESP32 and ESP8266 devices.
-- Frequency reactive visual effects for ESP32 devices.
-- UDP sound synchronization with transmit for ESP32 and receive for ESP8266 and ESP32 devices.
-- 2D visual effects for ESP32 devices.
-- Squelch and gain settings for ESP8266 and ESP32 devices for the volume reactive visual effects.
-- 2D settings for ESP32 devices.
-- Frequency reactive sliders for ESP32 devices.
+What software does it run, you ask? A customized version of [WLED](https://github.com/atuline/WLED)! What is WLED? It's the most awesome open source software out there to control LED strips, create custom animations and more - using a web interface, physical buttons, the WLED API or even Alexa!
 
-We currently have 3 active forks for our Sound Reactive WLED. They are:
+Do you already have a project that runs on a [supported microcontroller](https://github.com/Aircoookie/WLED/wiki/Compatible-hardware) and don't want to use the Glowing Core case? Fair enough - you can also just install the firmware (check the "**Step 3:** Install the Glowing Core firmware on your ESP32" part of this readme) and consider changing the LED strip pin in the settings via the web interface - and there you go!
 
-- [ESP32 standard version (ESP8266 will be deprecated)](https://github.com/atuline/WLED)
-- [ESP32 development version (ESP8266 will be deprecated)](https://github.com/atuline/WLED/tree/dev)
-- [ESP8266 version](https://github.com/atuline/WLED/tree/ESP8266)
+## How to build the Glowing Core
 
-In addition, we have a [Sound Reactive WLED Wiki](https://github.com/atuline/WLED/wiki).
+### **Step 1:** 3D print the case parts
 
-Join Discord to discuss beta testing of our sound reactive fork of WLED:
+Select which version you want and print the files on an FDM (molten plastic) or SLA (resin) printer. The 3D files are tested with an Anycubic Photon Mono X (SLA printer), but should also work fine on a regular FDM printer.
 
-<a href="https://discord.gg/4CQRmfR"><img src="https://discordapp.com/api/guilds/700041398778331156/widget.png?style=banner2" width="25%"></a>
+#### **T7 edition, with connector for a lipo battery**
 
+Download and print those STL files:
 
-Join Discord to discuss AirCookie's WLED:
+- [Top case](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/T7%20edition/case_top.stl)
+- [Bottom case](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/T7%20edition/case_bottom.stl)
+- [Power switch](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/T7%20edition/case_power_button.stl)
 
-<a href="https://discord.gg/KuqP7NE"><img src="https://discordapp.com/api/guilds/473448917040758787/widget.png?style=banner2" width="25%"></a>
+#### **D1 edition**
 
+Download and print those STL files:
 
+- [Top case](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/D1%20edition/case_top.stl)
+- [Bottom case](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/D1%20edition/case_bottom.stl)
 
-And now onto regular WLED . . .
+### **Step 2:** Get all the other parts you need
 
+Here is what you need:
 
+**For the TTGO T7 version with connector for a lipo battery**
 
-# Welcome to my project WLED! ✨
+- 1x ESP32 TTGO T7
+- 1x JST 1.25mm male cable
+- 1x JST 1.25mm female cable
 
-A fast and feature-rich implementation of an ESP8266/ESP32 webserver to control NeoPixel (WS2812B, WS2811, SK6812) LEDs or also SPI based chipsets like the WS2801 and APA102!
+**For the D1 Mini version**
 
-## ⚙️ Features
-- WS2812FX library integrated for over 100 special effects
-- FastLED noise effects and 50 palettes
-- Modern UI with color, effect and segment controls
-- Segments to set different effects and colors to parts of the LEDs
-- Settings page - configuration over network
-- Access Point and station mode - automatic failsafe AP
-- Up to 10 LED outputs per instance
-- Support for RGBW strips
-- Up to 250 user presets to save and load colors/effects easily, supports cycling through them.
-- Presets can be used to automatically execute API calls
-- Nightlight function (gradually dims down)
-- Full OTA software updatability (HTTP + ArduinoOTA), password protectable
-- Configurable analog clock + support for the Cronixie kit by Diamex
-- Configurable Auto Brightness limit for safer operation
-- Filesystem-based config for easier backup of presets and settings
+- 1x ESP32 D1 Mini
 
-## 💡 Supported light control interfaces
-- WLED app for [Android](https://play.google.com/store/apps/details?id=com.aircoookie.WLED) and [iOS](https://apps.apple.com/us/app/wled/id1475695033)
-- JSON and HTTP request APIs
-- MQTT
-- Blynk IoT
-- E1.31, Art-Net, DDP and TPM2.net
-- [diyHue](https://github.com/diyhue/diyHue) (Wled is supported by diyHue, including Hue Sync Entertainment under udp. Thanks to [Gregory Mallios](https://github.com/gmallios))
-- [Hyperion](https://github.com/hyperion-project/hyperion.ng)
-- UDP realtime
-- Alexa voice control (including dimming and color)
-- Sync to Philips hue lights
-- Adalight (PC ambilight via serial) and TPM2
-- Sync color of multiple WLED devices (UDP notifier)
-- Infrared remotes (24-key RGB, receiver required)
-- Simple timers/schedules (time from NTP, timezones/DST supported)
+**And the rest...**
 
-## 📲 Quick start guide and documentation
+- 1x GY-MAX4466 microphone
+- 1x 3-pin LED strip connector female (the same connector type basically every WS2812B led strip comes with)
+- 3x wires (a few cm each is enough, for connecting the microphone to the ESP32)
+- 4x M3 square nuts
+- 4x M3 6mm screws
 
-See the [wiki](https://github.com/atuline/WLED/wiki)!
+### **Step 3:** Install the Glowing Core firmware on your ESP32
 
-[On this page](https://github.com/Aircoookie/WLED/wiki/Learning-the-ropes) you can find excellent tutorials made by the community and helpful tools to help you get your new lamp up and running!
+Just take the [firmware.bin](https://github.com/glowingkitty/TheGlowingCore/blob/master/firmware.bin) and [install it to your ESP32](https://github.com/Aircoookie/WLED/wiki/Install-WLED-binary) - or [compile & upload the GlowingCore firmware specifically for your microcontroller](https://github.com/Aircoookie/WLED/wiki/Compiling-WLED).
 
-## 🖼️ Images
-<img src="/images/macbook-pro-space-gray-on-the-wooden-table.jpg" width="50%"><img src="/images/walking-with-iphone-x.jpg" width="50%">
+### **Step 4:** (For TTGO T7 version) Add the power switch
 
-## 💾 Compatible LED Strips
-Type | Voltage | Comments
-|---|---|---|
-WS2812B | 5v |
-WS2813 | 5v |
-SK6812 | 5v | RGBW
-APA102 | 5v | C/D
-WS2801 | 5v | C/D
-LPD8806 | 5v | C/D
-TM1814 | 12v | RGBW
-WS2811 | 12v | 3-LED segments
-WS2815 | 12v |
-GS8208 | 12v |
-Analog/non-addressable | any | Requires additional circuitry
+![Add the power switch](readme/add_power_switch.gif)
 
-## 🧊 Compatible PC RGB Fans and ARGB accessories
-Brand | Model | Comments
-|---|---|---|
-Corsair | HD120 Fan | Uses WS2812B, data-in only
-PCCOOLER | Moonlight 5-pack Fans | Uses WS2812B, includes Data-out connector to keep each fan uniquely addressable if wired in series like traditional LED strips
-Any | 5v 3-pin ARGB for PC | Any PC RGB device that supports the 5v 3-pin ARGB motherboard header should work fine with WLED. All the major motherboard vendors support the Corsair HD120 and PCCOOLER fans listed, so we can safely assume any device that supports motherboard ARGB 5V 3-Pin standard will work with WLED.
+### **Step 5:** Place the ESP32 board, microphone and 3-pin connector inside the bottom case
 
+![Place the ESP32 board, microphone and 3-pin connector inside the bottom case](readme/add_components.gif)
 
-## ✌️ Other
+### **Step 6:** Solder all parts together
 
-Licensed under the MIT license
-Credits [here](https://github.com/Aircoookie/WLED/wiki/Contributors-&-About)!
+![Solder all parts together](readme/soldering.jpg)
 
-Uses Linearicons by Perxis!
+### **Step 7:** (For TTGO T7 version) Solder JST 1.25mm 2-pin cables together & place in in the top case
 
-Join the Discord server to discuss everything about WLED!
+![Solder JST 1.25mm 2-pin cables together & place in in the top case](readme/add_lipo_extender.gif)
 
-<a href="https://discord.gg/KuqP7NE"><img src="https://discordapp.com/api/guilds/473448917040758787/widget.png?style=banner2" width="25%"></a>
+### **Step 8:** Add nuts in the top case case
 
-Check out the WLED [Discourse forum](https://wled.discourse.group)!
-You can also send me mails to [dev.aircoookie@gmail.com](mailto:dev.aircoookie@gmail.com), but please only do so if you want to talk to me privately.
-If WLED really brightens up your every day, you can [![](https://img.shields.io/badge/send%20me%20a%20small%20gift-paypal-blue.svg?style=flat-square)](https://paypal.me/aircoookie)
+![Add nuts in the top case case](readme/add_nuts.gif)
 
+### **Step 9:** Close the case and screw it together
 
-*Disclaimer:*
-If you are sensitive to photosensitive epilepsy it is not recommended that you use this software.
-In case you still want to try, don't use strobe, lighting or noise modes or high effect speed settings.
-As per the MIT license, I assume no liability for any damage to you or any other person or equipment.
+![Close the case and screw it together](readme/close_case.gif)
 
+### **Step 10:** Setup the software
+
+Just connect your LED strip via the 3-pin connector, supply the Glowing Core with power (via Micro USB or if you use the TTGO T7 edition - using a lipo battery via the 1.25mm JST input), search for the "TheGlowingCore" wifi network, connect with it and continue the setup which should automatically pop up. If it doesn't pop up, open the URL [4.3.2.1](http://4.3.2.1) in your web browser.
+
+### **Step 11:** Build cool stuff with LEDs and make the world glow
+![For example upgrade your bike with LEDs!](readme/bike.jpeg)
