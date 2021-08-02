@@ -1,6 +1,4 @@
-# The Glowing Core
-
-![Your all in one solution to power your LED projects!](readme/header.jpg)
+![The Glowing Core](readme/header.jpg)
 
 ## What is this project?
 
@@ -20,16 +18,16 @@ Select which version you want and print the files on an FDM (molten plastic) or 
 
 Download and print those STL files:
 
-- [Top case](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/T7%20edition/case_top.stl)
-- [Bottom case](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/T7%20edition/case_bottom.stl)
-- [Power switch](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/T7%20edition/case_power_button.stl)
+- 1x [Top case](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/T7%20edition/case_top.stl)
+- 1x [Bottom case](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/T7%20edition/case_bottom.stl)
+- 1x [Power switch](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/T7%20edition/case_power_button.stl)
 
 #### **D1 edition**
 
 Download and print those STL files:
 
-- [Top case](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/D1%20edition/case_top.stl)
-- [Bottom case](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/D1%20edition/case_bottom.stl)
+- 1x [Top case](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/D1%20edition/case_top.stl)
+- 1x [Bottom case](https://github.com/glowingkitty/TheGlowingCore/blob/master/3d%20printed%20parts/D1%20edition/case_bottom.stl)
 
 ### **Step 2:** Get all the other parts you need
 
